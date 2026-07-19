@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akmal Fahreza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0b;
+    --surface:#131315;
+    --surface-2:#1a1a1d;
+    --gold:#c9a24b;
+    --gold-bright:#e8cd82;
+    --text:#ece7dd;
+    --muted:#8b8b8f;
+    --hair:#2a2a2d;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+
+  main{padding-top:0;}
+
+  .hero{
+    min-height:92vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    padding:8vh 8vw 6vh;
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'Inter', sans-serif;
+    font-size:12px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:22px;
+  }
+  .eyebrow::before{content:"— "; color:var(--gold);}
+  h1{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    font-size:clamp(48px, 9vw, 108px);
+    line-height:0.98;
+    letter-spacing:0.01em;
+    color:var(--text);
+  }
+  h1 em{
+    font-style:italic;
+    color:var(--gold-bright);
+    font-weight:400;
+  }
+  .tagline{
+    max-width:560px;
+    margin-top:28px;
+    font-size:16px;
+    line-height:1.7;
+    color:var(--muted);
+    font-weight:300;
+  }
+  .tagline b{color:var(--text); font-weight:500;}
+
+  /* sparkline signature */
+  .divider-wrap{
+    margin-top:48px;
+    display:flex; align-items:center; gap:18px;
+  }
+  .divider-line{
+    width:64px; height:1px;
+    background:var(--gold);
+  }
+  .divider-label{
+    font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  section{
+    padding:9vh 8vw;
+    border-top:1px solid var(--hair);
+  }
+  .section-head{
+    display:flex; align-items:baseline; gap:16px;
+    margin-bottom:44px;
+  }
+  .section-num{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:15px;
+    color:var(--gold);
+  }
+  .section-title{
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(28px, 4vw, 40px);
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+
+  /* profile / photo section */
+  .profile-grid{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .frame{
+    width:220px; height:220px;
+    border:1px solid var(--gold);
+    padding:10px;
+    position:relative;
+  }
+  .frame::before{
+    content:"";
+    position:absolute; inset:-8px;
+    border:1px solid var(--hair);
+    pointer-events:none;
+  }
+  .avatar{
+    width:100%; height:100%;
+    background:
+      radial-gradient(120% 120% at 20% 15%, #2a2419 0%, #0f0f10 60%);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Cormorant Garamond', serif;
+    font-size:56px;
+    font-style:italic;
+    color:var(--gold-bright);
+    border:1px solid var(--hair);
+  }
+  .profile-copy p{
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.85;
+    max-width:520px;
+  }
+  .profile-copy p + p{margin-top:14px;}
+  .profile-copy .name-line{
+    font-family:'Cormorant Garamond', serif;
+    font-size:24px;
+    color:var(--text);
+    margin-bottom:6px;
+  }
+
+  /* link section */
+  .link-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:24px 0;
+    border-bottom:1px solid var(--hair);
+    text-decoration:none;
+    color:var(--text);
+    transition:padding-left 0.35s ease, color 0.35s ease;
+  }
+  .link-row:first-of-type{border-top:1px solid var(--hair);}
+  .link-row:hover{padding-left:14px; color:var(--gold-bright);}
+  .link-left{display:flex; align-items:baseline; gap:18px;}
+  .link-tag{font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold);}
+  .link-name{font-family:'Cormorant Garamond', serif; font-size:26px;}
+  .link-arrow{font-size:20px; color:var(--muted); transition:transform 0.35s ease, color 0.35s ease;}
+  .link-row:hover .link-arrow{transform:translateX(6px); color:var(--gold-bright);}
+
+  /* lists */
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+  }
+  .list-block h3{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:20px;
+    color:var(--gold-bright);
+    margin-bottom:22px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--hair);
+  }
+  .list-block ol{list-style:none; counter-reset:item;}
+  .list-block li{
+    counter-increment:item;
+    display:flex; gap:18px; align-items:baseline;
+    padding:16px 0;
+    border-bottom:1px solid var(--hair);
+    font-size:16px;
+    font-weight:400;
+    color:var(--text);
+  }
+  .list-block li::before{
+    content: counter(item, decimal-leading-zero);
+    font-family:'Inter', monospace;
+    font-size:12px;
+    color:var(--muted);
+    min-width:22px;
+  }
+  .list-block li span.sub{
+    display:block;
+    font-size:12.5px;
+    color:var(--muted);
+    margin-top:4px;
+    font-weight:300;
+  }
+
+  footer{
+    padding:6vh 8vw;
+    display:flex; justify-content:space-between; align-items:center;
+    color:var(--muted);
+    font-size:12px;
+    letter-spacing:0.05em;
+  }
+  footer .gold{color:var(--gold);}
+
+  @media (max-width:720px){
+    .profile-grid{grid-template-columns:1fr; text-align:center;}
+    .frame{margin:0 auto;}
+    .two-col{grid-template-columns:1fr; gap:40px;}
+    .link-name{font-size:21px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <section class="hero" style="border-top:none;">
+    <div class="eyebrow">Personal Profile</div>
+    <h1>Akmal<br><em>Fahreza</em></h1>
+    <p class="tagline">Siswa SMK yang membaca pasar seperti membaca cerita — tertarik pada korelasi antara <b>saham</b> dan <b>crypto</b>, dengan target karier di <b>investment banking</b>.</p>
+
+    <div class="divider-wrap">
+      <div class="divider-line"></div>
+      <span class="divider-label">Belajar Pasar Saham &amp; Crypto</span>
+    </div>
+  </section>
+
+  <section id="profil">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <span class="section-title">Profil</span>
+    </div>
+    <div class="profile-grid">
+      <div class="frame">
+        <div class="avatar">AF</div>
+      </div>
+      <div class="profile-copy">
+        <div class="name-line">Akmal Fahreza</div>
+        <p>Halo, saya Akmal &mdash; senang mempelajari pergerakan pasar, mulai dari indeks saham hingga aset crypto, dan mencari pola serta korelasi di baliknya.</p>
+        <p>Ke depannya saya bercita-cita berkarier di bidang <em style="color:var(--gold-bright); font-family:'Cormorant Garamond', serif;">investment banking</em>, membangun pemahaman analitis sejak dari bangku sekolah.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="link">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <span class="section-title">Tautan</span>
+    </div>
+    <a class="link-row" href="https://www.idx.co.id" target="_blank" rel="noopener">
+      <div class="link-left">
+        <span class="link-tag">Referensi</span>
+        <span class="link-name">Bursa Efek Indonesia (IDX)</span>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+  </section>
+
+  <section id="hobi">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <span class="section-title">Hobi &amp; Favorit</span>
+    </div>
+    <div class="two-col">
+      <div class="list-block">
+        <h3>List Hobi</h3>
+        <ol>
+          <li>Menganalisis laporan keuangan perusahaan Belajar memahami kesehatan dan nilai suatu bisnis<span class="sub">Mempelajari ekonomi &amp; pasar global Mengikuti perkembangan kebijakan ekonomi serta dampaknya terhadap pasar</span></li>
+          <li>Mengamati korelasi harga crypto<span class="sub">Bitcoin, Ethereum, dan aset digital lain</span></li>
+          <li>Membaca buku dan artikel tentang investasi Menambah wawasan mengenai bisnis, valuasi, dan dunia keuangan<span class="sub">Menghubungkan berita dengan pergerakan harga</span></li>
+        </ol>
+      </div>
+      <div class="list-block">
+        <h3>List Makanan Favorit</h3>
+        <ol>
+          <li>Ayam goreng<span class="sub">Comfort food nomor satu</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Akmal Fahreza &mdash; Praktik 2, Website Favorit</span>
+    <span class="gold">XII PPLG</span>
+  </footer>
+</main>
+
+</body>
+</html>>
